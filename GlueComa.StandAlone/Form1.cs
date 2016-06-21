@@ -12,16 +12,29 @@ namespace GlueComa.StandAlone
 {
     public partial class Form1 : Form
     {
+        private readonly EditorControl _editor;
+
         public Form1()
         {
             InitializeComponent();
+
+            _editor = new EditorControl();
+            Controls.Add(_editor);
+            _editor.Dock = DockStyle.Fill;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var editor = new EditorControl();
-            Controls.Add(editor);
-            editor.Dock = DockStyle.Fill;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            var result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                _editor.LoadCodeFile(dialog.FileName);
+            }
         }
     }
 }
