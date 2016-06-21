@@ -5,18 +5,31 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 </head>
 <body>
-    Hi
     <div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
 
     <script src="monaco-editor/min/vs/loader.js"></script>
-    <script>
-	require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});
-	require(['vs/editor/editor.main'], function() {
-	    var editor = monaco.editor.create(document.getElementById("container"), {
-	        value: "function hello() {\n\talert('Hello world!');\n}",
-	        language: "javascript"
-	    });
-	});
-    </script>
+<script>
+    require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        var editor = monaco.editor.create(document.getElementById("container"), {
+            value: "function hello() {\n\talert('Hello world!');\n}",
+            language: "javascript",
+            theme: "vs-dark"
+        });
+    });
+
+    function loadCode(code, language) {
+        var div = document.getElementById("container");
+        div.innerHTML = null;
+
+        monaco.editor.create(div,
+        {
+            value: code,
+            language: language
+        });
+    }
+
+    test();
+</script>
 </body>
 </html>

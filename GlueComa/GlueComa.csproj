@@ -228,7 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="html\editor.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="html\monaco-editor\dev\vs\base\common\worker\simpleWorker.js" />
     <Content Include="html\monaco-editor\dev\vs\base\common\worker\simpleWorker.nls.de.js" />
